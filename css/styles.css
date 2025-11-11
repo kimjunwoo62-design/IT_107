@@ -1,0 +1,1396 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #c8a97e;
+    --secondary-color: #1a1a1a;
+    --accent-color: #333333;
+    --light-color: #ffffff;
+    --dark-color: #121212;
+    --text-color: #ffffff;
+    --border-radius: 0;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: #000000;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.full-width {
+    width: 100vw;
+    max-width: 100%;
+}
+
+/* Prospect Name Above Header */
+.prospect-name {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+    border-bottom: 1px solid rgba(200, 169, 126, 0.3);
+}
+
+/* Header Styles */
+header {
+    background-color: transparent;
+    color: white;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    position: fixed;
+    top: 35px;
+    left: 0;
+    z-index: 100;
+}
+
+/* Registration Form Specific Header Styles */
+body:has(#register-form) header {
+    padding: 1rem 3rem;
+}
+
+.elegant-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    padding-left: 0;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: var(--light-color);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+/* Registration Form Specific Logo Styles */
+body:has(#register-form) .logo h1 {
+    font-size: 1.6rem;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after, nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.primary-btn:hover {
+    background-color: #b89a6e;
+    transform: translateY(-2px);
+}
+
+.outline-btn {
+    background-color: transparent;
+    color: var(--light-color);
+    border: 1px solid var(--light-color);
+}
+
+.outline-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.text-btn {
+    background-color: transparent;
+    color: var(--light-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.text-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Auth Section Styles */
+.auth-section {
+    background-color: var(--dark-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0 4rem; /* large top padding already clears fixed header */
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+}
+
+.auth-section:has(.forgot-password-form-2) {
+    padding: 8rem 0 2rem;
+}
+
+.auth-container {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    color: var(--light-color);
+}
+
+/* Registration Form Specific Styles */
+.auth-section:has(#register-form) {
+    padding: 10rem 0 4rem;
+}
+
+.auth-section:has(#register-form) .auth-container {
+    padding: 3rem;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Expand container for Step 3 and Step 4 to use landscape layout */
+.auth-section:has(.step-content[data-step="3"].active) .auth-container,
+.auth-section:has(.step-content[data-step="4"].active) .auth-container {
+    max-width: 1100px;
+    width: 90%;
+    transition: max-width 0.3s ease, width 0.3s ease;
+}
+
+.auth-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.auth-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.elegant-form .form-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Registration Form Specific Title and Section Styles */
+.auth-section:has(#register-form) .auth-title {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.auth-section:has(#register-form) .auth-title::after {
+    bottom: -8px;
+}
+
+.auth-section:has(#register-form) .form-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+}
+
+.auth-section:has(#register-form) .elegant-form .form-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.elegant-form .form-row {
+    display: block;
+    margin: 0 -15px;
+}
+
+.elegant-form .form-row .form-group {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 0 15px;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 900px) {
+    .elegant-form.single-column .form-row { display: block; }
+}
+
+.elegant-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.elegant-form .form-group label {
+    color: var(--light-color);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Registration Form Specific Form Group Styles */
+.auth-section:has(#register-form) .elegant-form .form-row .form-group {
+    margin-bottom: 0.9rem;
+}
+
+.auth-section:has(#register-form) .elegant-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-section:has(#register-form) .elegant-form .form-group label {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.elegant-form .form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.elegant-form .form-group input,
+.elegant-form .form-group select,
+.elegant-form .form-group textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--light-color);
+    padding: 0.8rem 1rem;
+    width: 100%;
+}
+
+/* Registration Form Specific Input Styles */
+.auth-section:has(#register-form) .elegant-form .form-group input,
+.auth-section:has(#register-form) .elegant-form .form-group select,
+.auth-section:has(#register-form) .elegant-form .form-group textarea {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+}
+
+.elegant-form .form-group input:focus,
+.elegant-form .form-group select:focus,
+.elegant-form .form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.elegant-form .form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Registration Form Specific Actions Styles */
+.auth-section:has(#register-form) .elegant-form .form-actions {
+    margin-top: 1.25rem;
+}
+
+.elegant-form .form-actions .primary-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.8rem 2.5rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+/* Registration Form Specific Button Styles */
+.auth-section:has(#register-form) .elegant-form .form-actions .primary-btn {
+    padding: 0.7rem 2rem;
+    font-size: 0.9rem;
+}
+
+.elegant-form .form-actions .primary-btn:hover {
+    background-color: #b89a6e;
+    transform: translateY(-2px);
+}
+
+.form-note {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+.text-btn.active {
+    color: var(--primary-color);
+}
+
+/* Improve select dropdown appearance for dark theme (Sex field) */
+.elegant-form .form-group select {
+    background-color: rgba(255,255,255,0.06); /* subtle dark bg */
+    color: var(--light-color);
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 50%),
+                      linear-gradient(135deg, var(--primary-color) 50%, transparent 50%),
+                      linear-gradient(to right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+    background-size: 6px 6px, 6px 6px, 1px 100%;
+    background-repeat: no-repeat;
+}
+
+/* Styling native option elements (may be limited by browser) */
+.elegant-form .form-group select option {
+    background-color: #1e2d24; /* dark option bg */
+    color: #f7efe3; /* light text */
+}
+
+/* Remove default IE/Edge expand icon */
+.elegant-form .form-group select::-ms-expand {
+    display: none;
+}
+
+/* Focus state */
+.elegant-form .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(200,169,126,0.12);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-color);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 2rem 0;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Registration Form Specific Footer Styles */
+body:has(#register-form) footer {
+    padding: 2rem 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* Form Styles */
+form {
+    margin-top: 1.5rem;
+}
+
+form .form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+}
+
+.elegant-form .form-section {
+    background-color: transparent;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.elegant-form label {
+    color: var(--light-color);
+    font-weight: 300;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.form-actions p {
+    margin-top: 1rem;
+}
+
+.form-actions a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.form-actions a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Multi-Step Registration Form Styles */
+.multi-step-section {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.multi-step-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.multi-step-form {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+/* Step Indicators */
+.step-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+}
+
+.step-indicator.active .step-circle {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(200, 169, 126, 0.5);
+}
+
+.step-indicator.completed .step-circle {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.step-label {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.step-indicator.active .step-label {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.step-line {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-line.completed {
+    background-color: var(--primary-color);
+}
+
+/* Step Content Container */
+.step-content {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.step-content.active {
+    position: relative;
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.step-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.step-1-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.step-1-layout .form-section {
+    border-bottom: none;
+    padding: 0;
+}
+
+.step-content[data-step="2"] .step-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Step 3 Security Questions Layout - Match Image Exactly */
+.step-content[data-step="3"] .step-form-grid.step3-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-bottom: 1.5rem !important;
+    width: 100% !important; /* Fixed from 1200% */
+}
+
+.step-content[data-step="3"] .qa-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    align-items: start !important;
+    margin-bottom: 1.5rem !important;
+    width: 100% !important;
+}
+
+.step-content[data-step="3"] .qa-row .form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.step-content[data-step="3"] .qa-row .form-group:first-child {
+    grid-column: 1 / 2;
+}
+
+.step-content[data-step="3"] .qa-row .form-group:last-child {
+    grid-column: 2 / 3;
+}
+
+.step-content[data-step="3"] .qa-row .form-group label {
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--light-color) !important;
+    font-weight: 300 !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+}
+
+.step-content[data-step="3"] .qa-row .form-group select,
+.step-content[data-step="3"] .qa-row .form-group input[type="password"],
+.step-content[data-step="3"] .qa-row .form-group input[type="text"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--light-color) !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.95rem !important;
+    transition: var(--transition);
+    flex: 1 1 auto;
+}
+
+.step-content[data-step="3"] .qa-row .form-group select:focus,
+.step-content[data-step="3"] .qa-row .form-group input:focus {
+    border-color: var(--primary-color) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(200, 169, 126, 0.2) !important;
+}
+
+.forgot-password-form-2 .qa-row {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.step-content[data-step="3"] .form-group.span-all {
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+.forgot-password-form-2 .step-form-grid {
+    grid-template-columns: 1fr;
+}
+
+.span-all {
+    grid-column: 1 / -1;
+}
+
+.required-ast {
+    color: #e74c3c;
+    margin-left: 2px;
+}
+
+.step-content[data-step="4"] {
+    width: 100%;
+}
+
+.step-form-grid .form-group {
+    margin-bottom: 0;
+}
+
+.step-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.next-btn, .back-btn {
+    padding: 0.8rem 2.5rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.next-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border: none;
+}
+
+.next-btn:hover {
+    background-color: #b89a6e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(200, 169, 126, 0.4);
+}
+
+.back-btn {
+    background-color: transparent;
+    color: var(--light-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Review Content */
+.review-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.review-section {
+    margin-bottom: 1.5rem;
+}
+
+.review-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.review-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Landscape layout for review items - show 2 columns */
+.step-content[data-step="4"] .review-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.step-content[data-step="4"] .review-section h4 {
+    grid-column: 1 / -1;
+    margin-bottom: 1.5rem;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.review-value {
+    color: var(--light-color);
+}
+
+/* Multi-step form specific adjustments */
+.multi-step-form .form-group label {
+    color: var(--light-color);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.multi-step-form .form-group input,
+.multi-step-form .form-group select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--light-color);
+    padding: 0.8rem 1rem;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.multi-step-form .form-group input:focus,
+.multi-step-form .form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(200, 169, 126, 0.2);
+}
+
+.multi-step-form .error-text {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Ensure proper layout for registration form */
+body:has(#register-form) {
+    overflow-x: hidden;
+}
+
+.multi-step-section {
+    width: 100%;
+    max-width: 100%;
+}
+
+.multi-step-container {
+    width: 100%;
+    padding: 0;
+}
+
+/* Expand multi-step container for landscape steps */
+.auth-section:has(.step-content[data-step="3"].active) .multi-step-container,
+.auth-section:has(.step-content[data-step="4"].active) .multi-step-container {
+    max-width: 100%;
+}
+
+/* Responsive adjustments for multi-step form */
+@media (max-width: 1200px) {
+    .step-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    
+    /* Step 3 - reduce to 2 columns on smaller screens */
+    .step-content[data-step="3"] .step-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+    
+    /* Step 4 - reduce to 1 column on smaller screens */
+    .step-content[data-step="4"] .review-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-indicators {
+        padding: 0 1rem;
+    }
+    
+    .step-line {
+        width: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .multi-step-container {
+        padding: 1.5rem 2rem;
+    }
+    
+    .step-form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Step 3 - single column on mobile */
+    .step-content[data-step="3"] .step-form-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    
+    /* Step 4 - single column on mobile */
+    .step-content[data-step="4"] .review-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-content[data-step="4"] .review-content {
+        max-width: 100%;
+    }
+    
+    .step-content[data-step="4"] {
+        max-width: 100%;
+    }
+    
+    .step-indicators {
+        margin: 1.5rem 0;
+        padding: 0 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+        margin-top: 0.25rem;
+    }
+    
+    .step-line {
+        width: 30px;
+        margin: 0 0.5rem;
+    }
+    
+    .step-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .next-btn, .back-btn {
+        padding: 0.7rem 2rem;
+        font-size: 0.85rem;
+    }
+    
+    .review-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+/* Specific styling for 768×850 resolution - Registration Form Only */
+@media (width: 768px) and (height: 850px), (width: 850px) and (height: 768px), (min-width: 768px) and (max-width: 850px) and (min-height: 768px) and (max-height: 850px) {
+    .auth-section:has(#register-form) {
+        padding: 10rem 0 4rem;
+    }
+    
+    .auth-section:has(#register-form) .auth-container {
+        padding: 2rem;
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .auth-section:has(#register-form) .auth-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .auth-section:has(#register-form) .form-section {
+        margin-bottom: 1rem;
+        padding: 0.85rem 1rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.85rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-group {
+        margin-bottom: 0.85rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-group label {
+        margin-bottom: 0.35rem;
+        font-size: 0.85rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-group input,
+    .auth-section:has(#register-form) .elegant-form .form-group select,
+    .auth-section:has(#register-form) .elegant-form .form-group textarea {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-actions {
+        margin-top: 1rem;
+    }
+    
+    .auth-section:has(#register-form) .elegant-form .form-actions .primary-btn {
+        padding: 0.6rem 1.75rem;
+        font-size: 0.85rem;
+    }
+    
+    body:has(#register-form) header {
+        padding: 0.75rem 2rem;
+    }
+    
+    body:has(#register-form) .logo h1 {
+        font-size: 1.4rem;
+    }
+    
+    body:has(#register-form) nav ul li a {
+        font-size: 0.8rem;
+    }
+    
+    body:has(#register-form) .text-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin-right: 0.5rem;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        margin: 0 0.3rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Account Recovery / Forgot Password Form Styles */
+.auth-section:has(.forgot-password-form-2) .auth-container {
+    max-width: 1200px;
+    width: 95%;
+    padding: 2rem;
+}
+
+.forgot-password-form-2 .step-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.forgot-password-form-2 .qa-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.forgot-password-form-2 .qa-row .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+.forgot-password-form-2 .qa-row .form-group label {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.forgot-password-form-2 .qa-row .form-group .question-select,
+.forgot-password-form-2 .qa-row .form-group .answer-input {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.forgot-password-form-2 .form-group {
+    margin-bottom: 0;
+}
+
+.forgot-password-form-2 label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light-color);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.forgot-password-form-2 .question-select,
+.forgot-password-form-2 .answer-input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--light-color);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.forgot-password-form-2 .question-select:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.forgot-password-form-2 .question-select:focus,
+.forgot-password-form-2 .answer-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(200, 169, 126, 0.2);
+}
+
+.forgot-password-form-2 .answer-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments for account recovery form */
+@media (max-width: 1024px) {
+    .forgot-password-form-2 .qa-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .forgot-password-form-2 .qa-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .forgot-password-form-2 .step-form-grid {
+        gap: 1rem;
+    }
+    
+    .forgot-password-form-2 .question-select,
+    .forgot-password-form-2 .answer-input {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.9rem;
+    }
+}
