@@ -15,7 +15,8 @@ if (isset($_SESSION['forgot_password_username'])) {
     $user = $stmt->fetch();
     if ($user) {
         $stage = 2;
-        unset($_SESSION['forgot_password_username']); // Clear after use
+        // The session variable is intentionally not unset here. It is required by
+        // reset_password.php and must persist until the process is complete.
     }
 }
 
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($user) {
                 $stage = 2; // User found, proceed to stage 2
+                $_SESSION['forgot_password_username'] = $user['username']; // Store username for the next step
             } else {
                 $errors['username'] = 'User not found.';
             }
