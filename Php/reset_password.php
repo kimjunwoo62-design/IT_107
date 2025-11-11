@@ -64,7 +64,7 @@ try {
 } catch (PDOException $e) {
     error_log("DATABASE ERROR: " . $e->getMessage());
     $_SESSION['errors'] = ['form' => 'Database error. Please try again.'];
-    header('Location: ../forgot_password.php');
+    header('Location: forgot_password.php');
     exit();
 }
 
