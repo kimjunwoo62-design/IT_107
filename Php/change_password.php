@@ -4,7 +4,7 @@ require_once __DIR__ . '/db.php';
 
 // Authorization Check
 if (!isset($_SESSION['reset_authorized_for_user_id'])) {
-    header('Location: ../login.php');
+    header('Location: login.php');
     exit();
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Clean up session and set success message for login page
             unset($_SESSION['reset_authorized_for_user_id']);
             $_SESSION['success_message'] = 'Successfully Change Password';
-            header('Location: ../login.php');
+            header('Location: login.php');
             exit();
         } catch (PDOException $e) {
             $errors['form'] = 'A database error occurred.';
@@ -70,9 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <header class="elegant-header">
             <div class="logo"><h1>LiquorLink</h1></div>
-            <nav><ul><li><a href="index.html">HOME</a></li></ul></nav>
+            <nav><ul><li><a href="../index.html">HOME</a></li></ul></nav>
             <div class="header-buttons">
-                <a href="index.html" class="btn text-btn">Home</a>
+                <a href="../index.html" class="btn text-btn">Home</a>
             </div>
         </header>
 

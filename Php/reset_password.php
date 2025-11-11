@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../forgot_password.php');
+    header('Location: forgot_password.php');
     exit();
 }
 
@@ -28,7 +28,7 @@ error_log("Answer 3 Re: " . $a3_re);
 if (empty($user_id) || (empty($a1) && empty($a2) && empty($a3))) {
     error_log("ERROR: Empty user_id or all answers empty");
     $_SESSION['errors'] = ['form' => 'Please answer all security questions.'];
-    header('Location: ../forgot_password.php');
+    header('Location: forgot_password.php');
     exit();
 }
 
@@ -36,7 +36,7 @@ if (empty($user_id) || (empty($a1) && empty($a2) && empty($a3))) {
 if ($a1 !== $a1_re || $a2 !== $a2_re || $a3 !== $a3_re) {
     error_log("ERROR: Answers don't match re-enter answers");
     $_SESSION['errors'] = ['form' => 'Your answers and re-enter answers do not match.'];
-    header('Location: ../forgot_password.php');
+    header('Location: forgot_password.php');
     exit();
 }
 
@@ -52,7 +52,7 @@ try {
     if (!$user) {
         error_log("ERROR: User not found with ID: " . $user_id);
         $_SESSION['errors'] = ['form' => 'User not found. Please start over.'];
-        header('Location: ../forgot_password.php');
+        header('Location: forgot_password.php');
         exit();
     }
 
@@ -86,7 +86,7 @@ if ($answer_correct) {
     // Success! Authorize password reset and redirect.
     error_log("SUCCESS: Password reset authorized for user ID: " . $user_id);
     $_SESSION['reset_authorized_for_user_id'] = $user_id;
-    header('Location: ../change_password.php');
+    header('Location: change_password.php');
     exit();
 } else {
     error_log("FAILED: One or more answers incorrect");
@@ -99,7 +99,7 @@ if ($answer_correct) {
         $_SESSION['forgot_password_username'] = $userData['username'];
         error_log("Username stored in session: " . $userData['username']);
     }
-    header('Location: ../forgot_password.php');
+    header('Location: forgot_password.php');
     exit();
 }
 ?>

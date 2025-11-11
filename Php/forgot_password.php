@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             unset($_SESSION['errors']['form']);
                         }
                         ?>
-                        <form id="forgot-password-form-2" class="elegant-form forgot-password-form-2" action="Php/reset_password.php" method="post">
+                        <form id="forgot-password-form-2" class="elegant-form forgot-password-form-2" action="reset_password.php" method="post">
                             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>">
                             <input type="hidden" name="security_q1" value="<?php echo htmlspecialchars($q1_text); ?>">
                             <input type="hidden" name="security_q2" value="<?php echo htmlspecialchars($q2_text); ?>">
